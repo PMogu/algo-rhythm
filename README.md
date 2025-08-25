@@ -9,3 +9,5 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 [Day 2: 23/08/25 奇偶排序](https://github.com/PMogu/algo-rhythm/tree/main/day2%20odd-even%20sort)
 
 [Day 3: 24/08/25 选择排序](https://github.com/PMogu/algo-rhythm/tree/main/day3%20selection%20sort)
+
+[Day 4: 25/08/25 哈希表](https://github.com/PMogu/algo-rhythm/tree/main/day4%20hash%20table)
