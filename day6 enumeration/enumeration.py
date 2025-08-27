@@ -7,8 +7,8 @@ def check(P, D, T, H):
     cntD = (P == 1) + (T == 4) + (H == 2) + (D == 3)
     return cntA == cntB == cntC == cntD ==1
 
-# generated all possible ordering, each ordering is a tuple like (1, 2, 3, 4).
-# Unpack into variables
+# generated all possible ordering, each ordering is a tuple like (1, 2, 3, 4)
+# unpack into variables
 for P, D, T, H in permutations((1, 5), 4): 
     if check(P, D, T, H):
         print(P)
