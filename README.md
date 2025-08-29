@@ -15,3 +15,5 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 [Day 5: 26/08/25 分数求和](https://github.com/PMogu/algo-rhythm/tree/main/day5%20fraction%20addition)
 
 [Day 6: 27/08/25 枚举](https://github.com/PMogu/algo-rhythm/tree/main/day6%20enumeration)
+
+*暂停一段时间学习新知识
