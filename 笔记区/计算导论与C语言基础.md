@@ -315,7 +315,7 @@ int main()
   - 最多可以表示$2^8 = 256$个字符
 - American Standard Code for Information Interchange 美国标准信息交换码
   
-##### 字符型食用须知
+##### 字符型使用须知
 由于存储类型和整型相同：
 - 可以与整型数据相互赋值
 - 可以和整数一样进行运算
