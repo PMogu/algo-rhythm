@@ -17,3 +17,5 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 [Day 6: 27/08/25 枚举](https://github.com/PMogu/algo-rhythm/tree/main/day6%20enumeration)
 
 *暂停一段时间学习新知识
+
+计划加入：其他数据科学相关内容
