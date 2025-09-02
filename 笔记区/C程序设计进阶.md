@@ -918,3 +918,109 @@ int main()
 方式二：数据类型 const 常量名 = 常量值;
 
 定义语句：const int *p
+
+### 指针做函数返回值
+```c++
+#include <iostream>
+using namespace std;
+int *get(int arr[][4], int n, int m)
+{
+    int *pt;
+    pt = *(arr + n - 1) + m - 1;
+    return(pt);
+}
+void main() {
+    int a[4][4] = 
+    {1, 2, 3, 4,5 ,6 , 7, 8, 9}
+    int *p
+    p = get (a, 2, 3);
+    cout << *p endl;
+}
+```
+
+---
+
+```c++
+#include <iostream>
+using namespace std;
+int *getInt1()
+{
+    int Value1 = 20; // static int Value1 = 20;
+    return &value1;
+}
+int *getInt2()
+{
+    int Value2 = 30; // static int Value2 = 30;
+    return &value2;
+}
+int main(){
+    int *p, *q;
+    p = getInnt1();
+    q = getInt2();
+    cout << *p << endl; // 30
+    return 0;
+}
+```
+
+---
+
+```c++
+#include <iostream>
+using namespace std;
+int value1 = 20;
+int value2 = 30;
+int *getInt1()
+{
+    return &value1;
+}
+int *getInt2()
+{
+    return &value2;
+}
+int main(){
+    int *p, *q;
+    p = getInnt1();
+    q = getInt2();
+    cout << *p << endl; // 30
+    return 0;
+}
+```
+
+### 静态局部变量
+
+函数中的局部变量的值在函数调用结束后不消失而保留原值
+即其占用的存储单元不是放，在下一次该函数调用时，仍可继续使用该变量
+
+## 结构体与链表
+
+```c++
+struct student
+{
+    int id;
+    char name[20];
+    char sex;
+    int age;
+    float score;
+    char addr[30]
+}; // 注意大括号后的";"
+```
+
+---
+
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+int main()
+{
+    student mike = {123, {'m', 'i', 'k', 'e', '\0'}};
+    mike.id_num = 20130000 + mike.id_num;
+    for (int i = 0; mike.name[i] != '\0'; i++)
+        mike.name[i] = toupper(mike.name[i]);
+    cout << mike.id_num << ' ' << mike.name << endl;
+}
+```
