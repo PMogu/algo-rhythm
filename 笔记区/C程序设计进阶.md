@@ -816,3 +816,105 @@ void main()
 }
 ```
 
+### 指针做函数参数
+```c++
+#include <iostream>
+using namespace std;
+void Rank(int *q1, int *q2)
+{
+    int temp;
+    if (*q1 < *q2)
+    {
+        temp = *q1;
+        *q1 = *q2;
+        *q2 = temp;
+    }
+}
+int main()
+{
+    int a, b, *p1, *p2;
+    cin >> a >> b;
+    p1 = &a; p2 = &b;
+    Rank (p1, p2)
+    cout << a << ' ' << b << endl;
+    return 0;
+}
+```
+
+```c++
+#include <iostream>
+using namespace std;
+
+void sum(int *p, int n)
+{
+    int total = 0;
+    for(int i = 0; i < n; i++)
+    {
+        total += *p++;
+    }
+    cout << total << endl;
+}
+
+int main()
+{
+    int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sum(a, 10);
+    return 0;
+}
+```
+
+---
+
+```c++
+#include <iostream>
+using namespace std;
+
+int sum(int array[], int n)
+{
+    for (int i = 0; i < 10 - 1; i++)
+    {
+        *(array + 1) = *array + *(array + 1);
+        array++;
+    }
+    return *array;
+}
+
+int main()
+{
+    int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    cout << sum(a, 10);
+    return 0;
+}
+```
+
+### 限制指针实参的功能
+
+只想符号常量的指针
+
+```c++
+#include <iostream>
+using namespace std;
+
+int sum(const int array[], int n)
+{
+    for (int i = 0; i < 10 - 1; i++)
+    {
+        *(array + 1) = *array + *(array + 1); //  错误：不能给常量赋值
+        array++;
+    }
+    return *array;
+}
+
+int main()
+{
+    int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    cout << sum(a, 10);
+    return 0;
+}
+```
+
+符号常量声明语句
+方式一：const 数据类型 常量名 = 常量值;
+方式二：数据类型 const 常量名 = 常量值;
+
+定义语句：const int *p
