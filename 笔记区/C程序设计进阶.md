@@ -1024,3 +1024,146 @@ int main()
     cout << mike.id_num << ' ' << mike.name << endl;
 }
 ```
+
+### 结构体变量与函数
+
+结构体变量赋值
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+int main()
+{
+    student mike1 = {123, {'m', 'i', 'k', 'e', '\0'}}
+    student mike2;
+    mike2 = mike1;
+    mike2.id_num = 20130000 + mike2.id_num;
+    for (int i = 0; mike2.name[i] != '\0'; i++)
+        mike2.name[i] = toupper(mike2.name[i]);
+    cout << mike1.id_num << ' ' << mike1.name << endl; // 123 mike
+    cout << mike2.id_num << ' ' << mike2.name << endl; // 20130123 MIKE
+    return 0;
+}
+```
+
+结构体变量做函数参数
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+void renew(student one)
+{
+    one.id_num = 20130000 + one.id_num;
+    for (int i = 0; one.name[i] != '\0'; i++)
+        one.name[i] = toupper(one.name[i]);
+    cout << one.id_num << ' ' << one.name << endl; // 20130123 MIKE
+}
+int main()
+{
+    student mike = {123, {'m', 'i', 'k', 'e', '\0'}}
+    renew(mike);
+    cout << mike.id_num << ' ' << mike.name << endl; // 123 mike
+    return 0;
+}
+```
+
+结构体变量做函数返回值
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+student newone()
+{
+   student one = {20130123, {'M', 'I', 'K', 'E', '\0'}};
+   return one;
+}
+int main()
+{
+    student mike = newone();
+    cout << mike.id_num << ' ' << mike.name << endl; // 123 mike
+    return 0;
+}
+```
+
+### 结构体变量与指针
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+}
+int main()
+{
+    student mike = {123, {'m', 'i', 'k', 'e', '\0'}};
+    student *one = &mike;
+    cout << (*one).id_num << ' ' << (*one).name; // 123 mike
+    cout << one->id_num << ' ' << one->name; // 指向运算符
+    return 0;
+}
+```
+
+---
+
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+void renew(student *one)
+{
+    one->id_num = 20130000 + one->id_num;
+    for (int i = 0; one->name[i] != '\0'; i++)
+        one->name[i] = toupper(one->name[i]);
+}
+int main()
+{
+    student mike = {123, {'m', 'i', 'k', 'e', '\0'}}
+    renew(&mike);
+    cout << mike.id_num << ' ' << mike.name << endl; // 20130123 mike
+    return 0;
+}
+```
+
+---
+
+结构体数组
+```c++
+#include <iostream>
+using namespace std;
+struct student
+{
+    int id_num;
+    char name[10];
+};
+int main()
+{
+    student myclass[3] =
+    {123, {'m', 'i', 'k', 'e', '\0'}
+    133, {'t', 'o', 'm', '\0'}
+    143, {'j', 'a', 'c', 'k', '\0'}};
+    student *one = myclass;
+    cout << one->id_num << ' ' << one->name << endl; // 123 mike
+    one++;
+    cout << one->id_num << ' ' << one->name << endl; // 133 tom
+    reutnr 0;
+}
+```
+
+结构体数据类型的特征与普通数据类型的特征是一致的
