@@ -1167,3 +1167,219 @@ int main()
 ```
 
 结构体数据类型的特征与普通数据类型的特征是一致的
+
+### 链表的定义
+
+- 链表头：指向第一个链表节点的的指针
+- 链表节点：链表中的每一个元素，包括：
+  - 当前节点的数据
+  - 下一个节点的地址
+- 链表尾：不再指向其他节点的的节点，其地址部分放一个NULL，表示链表到此结束
+
+链表可以动态地创建
+
+- 动态地申请内存空间
+int *pint = new int(1024);
+delete pint;
+
+int *pia = new int[4];
+delete [] pia;
+
+- 动态地 简历链表节点
+struct student
+{
+    int id;
+    student *next;
+}
+
+student *head;
+head new student;
+
+逐步建立链表
+
+Step1:
+head = new student;
+student *temp = head;
+
+Step2:
+Cotinue?
+
+Y:
+temp->next = new student;
+temp = temp->next
+goto Step 2
+
+N:
+temp->next = NULL
+
+```c++
+student *create()
+{
+    student *head, *temp; int num, n = 0;
+    head = new student;
+    temp = head;
+    cin >> num;
+    while (num != -1)
+    {
+        n++;
+        temp->id = num;
+        temp->next = new student;
+        temp=temp->next;
+        cin >> num;
+    }
+    if (n == 0) head = NULL, else temp->next = NULL;
+    return head
+}
+```
+
+#### 链表的操作
+
+链表元素的遍历
+```c++
+#incldue <iostream>
+using namespace std;
+struct student
+{
+    int id;
+    student *next;
+};
+student * create();
+int main()
+{
+    student *pointer = create();
+    while (pointer->next != NULL)
+    {
+        cout << pointer->id << endl;
+        pointer = pointer->next;
+    }
+    return 0;
+}
+```
+
+删除链表节点
+删除第一个节点
+temp = head; head = head->next; delete temp;
+
+删除中间节点
+follow->next = temp->next; delete temp;
+
+在链表中将值为n的元素删掉
+```c++
+linker *dele(student *head, int n)
+{
+    student *temp, *follow;
+    temp = head;
+    if (head == NULL) {
+        return (head);                 // head为空，空表的情况
+    }
+    if (head->num == n) {              // 第一个节点是要删除的目标；
+        head = head->next;
+        delete temp;
+        return (head);
+    }
+    while (temp != NULL && temp->num != n) {  // 寻找要删除的目标；
+        follow = temp;
+        temp = temp->next;
+    }
+    if (temp == NULL)
+        cout << "not found";           // 没寻找到要删除的目标；
+    else {
+        follow->next = temp->next;     // 删除目标节点；
+        delete temp;
+    }
+    return (head);
+}
+
+```
+
+插入节点
+将节点unit插入链表：
+插在最前面的情况
+unit->next = head;
+head = unit;
+
+插在中间的情况
+unit->next = temp;
+follow->next = unit;
+
+```c++
+Student *insert(student *head, int n) {     // 插入结点值为 n 的结点
+    student *temp, *unit, *follow;
+    temp = head;
+    unit = new student;
+    unit->num = n;
+    unit->next = NULL;
+
+    if (head == NULL) {                     // 如果链表为空，直接插入
+        head = unit;
+        return(head);
+    }
+
+    // 寻找第一个不小于 n 或结尾的结点 temp
+    while ((temp->next != NULL) && (temp->num < n)) {
+        follow = temp;
+        temp = temp->next;
+    }
+
+    if (temp == head) {                     // 如果 temp 为第一个结点
+        unit->next = head;
+        head = unit;
+    }
+    else {
+        if (temp->next == NULL)             // 如果 temp 为最后一个结点
+            temp->next = unit;
+        else {                              // 如果 temp 为一个中间结点
+            follow->next = unit;
+            unit->next = temp;
+        }
+    }
+
+    return(head);
+}
+```
+
+双向链表
+temp->num: 存放数据
+temp->next: 指向下一个
+temp->ahead: 指向前一个
+
+删除一个节点
+temp->ahead->next = temp->next;
+temp->next->ahead = temp->ahead;
+
+插入一个节点
+unit->next = temp->next;
+unit->ahead = temp;
+temp->next->ahead = unit;
+temp->next = unit;
+
+```c++
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int num;
+    Node *ahead;
+    Node *next;
+};
+
+Node *Create(int N);
+Node *Search(Node *head, int P);
+Node *Release(Node *head, int M);
+
+int main()
+{
+    int N, P, M = 0;               // N-起始节点数, P-开始节点
+    cin >> N >> P >> M;            // 每次释放第M个节点
+    Node *head = Create(N);        // 创建N个节点的环
+    head = Search(head, P);        // 找到第P个节点
+    while (head->next != head)     // 不断释放第M个元素
+    {                              // 直到只剩一个元素
+        head = Release(head, M);   // 释放第M个节点
+    }
+    cout << head->num;
+    return 0;
+}
+
+```
