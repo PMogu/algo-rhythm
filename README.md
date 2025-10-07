@@ -17,3 +17,7 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 [Day 6: 27/08/25 枚举](https://github.com/PMogu/algo-rhythm/tree/main/day6%20enumeration)
 
 *暂停一段时间学习新知识
+
+07/10/25 回来了 老实学Python中（）
+
+[Day 7: 07/10/25 枚举1000以内的质数](https://github.com/PMogu/algo-rhythm/tree/main/day7%20枚举1000以内的质数)
