@@ -21,3 +21,4 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 07/10/25 回来了 老实学Python中（）
 
 [Day 7: 07/10/25 枚举1000以内的质数](https://github.com/PMogu/algo-rhythm/tree/main/day7%20枚举1000以内的质数)
+[Day 8: 08/10/25 线性查找 二分查找](https://github.com/PMogu/algo-rhythm/tree/main/day8%20线性查找%20二分查找)
