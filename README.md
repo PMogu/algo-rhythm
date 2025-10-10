@@ -23,3 +23,7 @@ This is my algorithm learning records, rhythmic because it's updated daily (hope
 [Day 7: 07/10/25 枚举1000以内的质数](https://github.com/PMogu/algo-rhythm/tree/main/day7%20枚举1000以内的质数)
 
 [Day 8: 08/10/25 线性查找 二分查找](https://github.com/PMogu/algo-rhythm/tree/main/day8%20线性查找%20二分查找)
+
+[Day 9: 09/10/25 栈和队列](https://github.com/PMogu/algo-rhythm/tree/main/day09%20栈和队列)
+
+[Day 10: 10/10/25 递归](https://github.com/PMogu/algo-rhythm/tree/main/day10%20递归)
